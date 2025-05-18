@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- 🔥 Embedded Advanced 3D and Animated CSS -->
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background-size: 400% 400%;
+            animation: gradientFlow 18s ease infinite;
+            color: #ffffff;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border-bottom: 2px solid #00ffc8;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #00fff0, #00bfff, #00eaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #00fff0; }
+            to { text-shadow: 0 0 25px #00eaff, 0 0 30px #00bfff; }
+        }
+
+        nav {
+            margin-top: 1rem;
+        }
+
+        nav a {
+            margin: 0 20px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+
+            box-shadow: 0 4px 15px rgba(0, 255, 255, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        nav a:hover {
+            background: linear-gradient(120deg, #ff6ec4, #7873f5);
+            transform: scale(1.1) rotateX(15deg);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.5);
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 2rem;
+            flex-direction: column;
+            perspective: 1000px;
+            min-height: 80vh;
+        }
+
+       
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.4);
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Student Management System</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('add_student') }}">Add Student</a>
+            <a href="{{ url_for('view_students') }}">View Students</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card-3d">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Student Management | All rights reserved
+    </footer>
+</body>
+</html>
